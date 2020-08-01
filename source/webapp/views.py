@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseNotAllowed
-from webapp.models import Product
-from webapp.forms import ProductForm
+# from webapp.models import Product
+# from webapp.forms import ProductForm
 
 
 def index_view(request):

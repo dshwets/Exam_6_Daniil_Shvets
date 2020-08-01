@@ -1,27 +1,24 @@
-from django.core.validators import MinValueValidator
 from django.db import models
 
-
-DEFAULT_CATEGORY = 'other'
-CATEGORY_CHOICES = (
-    (DEFAULT_CATEGORY, 'Разное'),
-    ('food', 'Продукты питания'),
-    ('household', 'Хоз. товары'),
-    ('toys', 'Детские игрушки'),
-    ('appliances', 'Бытовая Техника')
+DEFAULT_STATUS = 'active'
+STATUS_CHOICES = (
+    (DEFAULT_STATUS, ' Активно'),
+    ('blocked', 'Заблокирвано'),
 )
 
-class Product(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Название')
-    description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
-    category = models.CharField(max_length=20, verbose_name='Категория',
-                                choices=CATEGORY_CHOICES, default=DEFAULT_CATEGORY)
-    amount = models.IntegerField(verbose_name='Остаток', validators=[MinValueValidator(0)])
-    price = models.DecimalField(verbose_name='Цена', max_digits=7, decimal_places=2, validators=[MinValueValidator(0)])
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Имя автора')
+    email = models.EmailField(max_length=100, verbose_name='Электронная почта')
+    text = models.TextField(max_length=2000, verbose_name='Отзыв')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
+    status = models.CharField(max_length=20, verbose_name='Статус',
+                              choices=STATUS_CHOICES, default=DEFAULT_STATUS)
 
     def __str__(self):
-        return f'{self.name} - {self.amount}'
+        return f'{self.name} - {self.text}'
 
     class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товары'
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'

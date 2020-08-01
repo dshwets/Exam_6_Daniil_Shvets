@@ -1,11 +1,12 @@
 from django.contrib import admin
+from webapp.models import Feedback
 
 
-class ProductAdmin(admin.ModelAdmin):
-    list_filter = ('category',)
-    list_display = ('pk', 'name', 'amount', 'price')
+class FeedbackAdmin(admin.ModelAdmin):
+    list_filter = ('status',)
+    list_display = ('pk', 'name', 'text', 'created_at')
     list_display_links = ('pk', 'name')
     search_fields = ('name',)
 
 
-# admin.site.register(Product, ProductAdmin)
+admin.site.register(Feedback, FeedbackAdmin)
