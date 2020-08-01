@@ -30,7 +30,7 @@ def create_feedback(request):
     elif request.method == 'POST':
         form = FeedbackForm(data=request.POST)
         if form.is_valid():
-            feedback = Feedback.objects.create(
+            Feedback.objects.create(
                 name=form.cleaned_data['name'],
                 email=form.cleaned_data['email'],
                 text=form.cleaned_data['text'],
