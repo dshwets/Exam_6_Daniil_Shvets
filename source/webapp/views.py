@@ -8,6 +8,7 @@ def index_view(request):
     if request.method == 'GET':
         feedbacks = Feedback.objects.filter(status='active').order_by('-created_at')
         context = {
+            'form': FeedbackForm(),
             'feedbacks': feedbacks
         }
         return render(request, 'index.html', context)

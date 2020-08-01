@@ -8,8 +8,12 @@
 
 {% block content %}
     <h1>Guest book</h1>
+
+    {% url "create_feedback" as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' button_text='Добавить'%}
+
     {% for feedback in feedbacks %}
-        <div class="card mt-3" style="width: 80%;">
+        <div class="card mt-3 mb-3" style="width: 80%;">
         <div class="card-body">
         <h5 class="card-title">Author: {{ feedback.name }}({{ feedback.email }})</h5>
         <h6 class="card-subtitle mb-2 text-muted">Create: {{ feedback.created_at }} Updated: {{ feedback.updated_at }}</h6>
@@ -21,4 +25,8 @@
         </div>
         </div>
     {% endfor %}
+
+
+
+
 {% endblock %}
