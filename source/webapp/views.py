@@ -7,10 +7,15 @@ from webapp.forms import FeedbackForm
 def index_view(request):
     if request.method == 'GET':
         feedbacks = Feedback.objects.filter(status='active').order_by('-created_at')
+        query = request.GET.get('search')
+        if query:
+            feedbacks = feedbacks.filter(name=query)
         context = {
             'form': FeedbackForm(),
             'feedbacks': feedbacks
         }
+
+
         return render(request, 'index.html', context)
 
 
