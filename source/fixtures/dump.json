@@ -1,0 +1,92 @@
+[
+{
+  "model": "webapp.feedback",
+  "pk": 1,
+  "fields": {
+    "name": "Rndom Author",
+    "email": "RandomAuthor@email.com",
+    "text": "sadasdasddasdasdsadasdas",
+    "created_at": "2020-08-01T05:45:06.712Z",
+    "updated_at": "2020-08-01T05:45:06.712Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 2,
+  "fields": {
+    "name": "Rndom Author2",
+    "email": "dshwets@gmail.com",
+    "text": "sidfjddiogjdsigsoahgifdoidbhdsiafhdiofjgsoajkbjafkbjifiddffjbkjijj",
+    "created_at": "2020-08-01T05:45:33.336Z",
+    "updated_at": "2020-08-01T05:45:33.336Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 3,
+  "fields": {
+    "name": "Rndom Author 3",
+    "email": "dshwets@gmail.com",
+    "text": "sbhajbsiaajgqjanjjantjdjnrfdjjnafsjbnsgkgjknsfnogfbksndeofbsjreoejnfsdrjknfbnkk",
+    "created_at": "2020-08-01T05:46:01.550Z",
+    "updated_at": "2020-08-01T05:46:01.550Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 4,
+  "fields": {
+    "name": "Rndom Author 3",
+    "email": "dshwets@gmail.com",
+    "text": "sbhajbsiaajgqjanjjantjdjnrfdjjnafsjbnsgkgjknsfnogfbksndeofbsjreoejnfsdrjknfbnkk",
+    "created_at": "2020-08-01T05:46:01.751Z",
+    "updated_at": "2020-08-01T05:46:01.751Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 5,
+  "fields": {
+    "name": "Rndom Author 4",
+    "email": "dshwets@gmail.com",
+    "text": "jakertkjgjgdifgjdflkgjdfkgjdfghoirhgoehgjdgnjdfhgoisdhgsdklk",
+    "created_at": "2020-08-01T05:46:35.971Z",
+    "updated_at": "2020-08-01T05:46:35.971Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.feedback",
+  "pk": 6,
+  "fields": {
+    "name": "Rndom Author 5",
+    "email": "dshwets@gmail.com",
+    "text": "jhfksgjklhjdfglhjhjfjhjfjhutsgjijgssfgjdsgjbhbsbdnxncbvnzbcnvbzcvzb",
+    "created_at": "2020-08-01T05:46:56.863Z",
+    "updated_at": "2020-08-01T05:46:56.863Z",
+    "status": "active"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$mPzA4uLiHAV6$hGFov8NyWXuD42rYBNfZV/YYHO56wCCpzpHab9P0J3Q=",
+    "last_login": "2020-08-01T05:43:33.204Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-07-31T18:13:07.590Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
