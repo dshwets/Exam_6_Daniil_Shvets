@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseNotAllowed
-# from webapp.models import Product
-# from webapp.forms import ProductForm
+from webapp.models import Feedback
+from webapp.forms import FeedbackForm
 
 
 def index_view(request):
     if request.method == 'GET':
-        products = Product.objects.all().order_by('category', 'name')
+        feedbacks = Feedback.objects.filter(status='active').order_by('-created_at')
         context = {
-            'products': products
+            'feedbacks': feedbacks
         }
         return render(request, 'index.html', context)
 

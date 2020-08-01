@@ -8,15 +8,25 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Perfect Shop</h1>
-    {% for product in products %}
-        {% if product.amount > 0 %}
+    <h1>Guest book</h1>
+    {% for feedback in feedbacks %}
+{#        <h3><a href="{% url 'watch_product' feedback.pk %}">{{ feedback.name }}</a></h3>#}
+{#        <p>{{ feedback.text }}</p>#}
+{#        <p> Статус: ({{ feedback.status }} | {{ feedback.get_status_display }})</p>#}
+{#        <p> Дата создания:{{ feedback.created_at }} | Дата редактирования: {{ feedback.updated_at }}</p>#}
+{#        <p><a href="{% url 'update_product' product.pk %}">Update</a> |||#}
+{#        <a href="{% url 'product_delete' product.pk %}">Delete</a></p>#}
 
-            <h3><a href="{% url 'watch_product' product.pk %}">{{ product.name }}</a></h3>
-            <p>Категория: ({{ product.category }} | {{ product.get_category_display }})</p>
-            <p>Qty:{{ product.amount }} | Price: {{ product.price }}</p>
-            <p><a href="{% url 'update_product' product.pk %}">Update</a> |||
-            <a href="{% url 'product_delete' product.pk %}">Delete</a></p>
-        {% endif %}
+
+        <div class="card mt-3" style="width: 80%;">
+        <div class="card-body">
+        <h5 class="card-title">Author: {{ feedback.name }}({{ feedback.email }})</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Create: {{ feedback.created_at }} Updated: {{ feedback.updated_at }}
+        Status: {{ feedback.get_status_display }}</h6>
+        <p class="card-text">{{ feedback.text }}</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+        </div>
+        </div>
     {% endfor %}
 {% endblock %}
