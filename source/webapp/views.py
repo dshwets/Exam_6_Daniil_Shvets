@@ -13,13 +13,13 @@ def index_view(request):
         return render(request, 'index.html', context)
 
 
-def delete_product(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def delete_feedback(request, pk):
+    feedback = get_object_or_404(Feedback, pk=pk)
     if request.method == 'GET':
-        return render(request, 'product_delete.html', context={'product': product})
+        return render(request, 'feedback_delete.html', context={'feedback': feedback})
     elif request.method == 'POST':
-        product.delete()
-        return redirect('index_view')
+        feedback.delete()
+        return redirect('index')
 
 
 def create_feedback(request):

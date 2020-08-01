@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block menu %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'create_feedback' %}"> Create new Feedback<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}"> Cancel <span class="sr-only">(current)</span></a>
+      </li>
+{% endblock %}
+
+{% block content %}
+    <h3>Вы уверены, что хотите удалить этот отзыв из базы : <br> "{{ feedback.name }}({{ feedback.email }})"?</h3>
+    <p> Text: {{ feedback.text }}</p>
+    <form action="{% url "feedback_delete" feedback.pk %}" method="post">
+        {% csrf_token %}
+        <p><input type="submit" value="Да"></p>
+        <p><a href="{% url 'index' %}">Отмена</a></p>
+    </form>
+{% endblock %}
