@@ -23,7 +23,7 @@
         <h5 class="card-title">Author: {{ feedback.name }}({{ feedback.email }})</h5>
         <h6 class="card-subtitle mb-2 text-muted">Create: {{ feedback.created_at }} Updated: {{ feedback.updated_at }}</h6>
         <p class="card-text">{{ feedback.text }}</p>
-        <a href="#" class="card-link">Card link</a>
+        <a href="{% url 'update_feedback' feedback.pk %}" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
         </div>
         </div>

@@ -42,38 +42,26 @@ def create_feedback(request):
             })
 
 
-# def watch_product(request, pk):
-#     product = Product.objects.get(pk=pk)
-#     context = {
-#         'product': product
-#     }
-#     return render(request, 'product_view.html', context)
-
-
-def update_product(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def update_feedback(request, pk):
+    feedback = get_object_or_404(Feedback, pk=pk)
     if request.method == 'GET':
-        form = ProductForm(initial={
-            'name': product.name,
-            'description': product.description,
-            'category': product.category,
-            'amount': product.amount,
-            'price': product.price
+        form = FeedbackForm(initial={
+            'name': feedback.name,
+            'email': feedback.email,
+            'text': feedback.text,
         })
         return render(request, 'feedback_update.html', context={'form': form,
-                                                               'product': product})
+                                                                'feedback': feedback})
     elif request.method == 'POST':
-        form = ProductForm(data=request.POST)
+        form = FeedbackForm(data=request.POST)
         if form.is_valid():
-            product.name = form.cleaned_data['name']
-            product.description = form.cleaned_data['description']
-            product.category = form.cleaned_data['category']
-            product.amount = form.cleaned_data['amount']
-            product.price = form.cleaned_data['price']
-            product.save()
-            return redirect('watch_product', pk=product.pk)
+            feedback.name = form.cleaned_data['name']
+            feedback.email = form.cleaned_data['email']
+            feedback.text = form.cleaned_data['text']
+            feedback.save()
+            return redirect('index', )
         else:
             return render(request, 'feedback_update.html', context={'form': form,
-                                                                   'product': product})
+                                                                    'feedback': feedback})
     else:
         return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])
