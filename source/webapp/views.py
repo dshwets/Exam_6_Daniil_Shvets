@@ -22,34 +22,32 @@ def delete_product(request, pk):
         return redirect('index_view')
 
 
-def create_product(request):
+def create_feedback(request):
     if request.method == 'GET':
-        return render(request, 'product_create.html', context={
-            'form': ProductForm()
+        return render(request, 'create_feedback.html', context={
+            'form': FeedbackForm()
         })
     elif request.method == 'POST':
-        form = ProductForm(data=request.POST)
+        form = FeedbackForm(data=request.POST)
         if form.is_valid():
-            product = Product.objects.create(
+            feedback = Feedback.objects.create(
                 name=form.cleaned_data['name'],
-                description=form.cleaned_data['description'],
-                category=form.cleaned_data['category'],
-                amount=form.cleaned_data['amount'],
-                price=form.cleaned_data['price']
+                email=form.cleaned_data['email'],
+                text=form.cleaned_data['text'],
             )
-            return redirect('watch_product', product.pk)
+            return redirect('index')
         else:
-            return render(request, 'product_create.html', context={
+            return render(request, 'create_feedback.html', context={
                 'form': form
             })
 
 
-def watch_product(request, pk):
-    product = Product.objects.get(pk=pk)
-    context = {
-        'product': product
-    }
-    return render(request, 'product_view.html', context)
+# def watch_product(request, pk):
+#     product = Product.objects.get(pk=pk)
+#     context = {
+#         'product': product
+#     }
+#     return render(request, 'product_view.html', context)
 
 
 def update_product(request, pk):
@@ -62,7 +60,7 @@ def update_product(request, pk):
             'amount': product.amount,
             'price': product.price
         })
-        return render(request, 'product_update.html', context={'form': form,
+        return render(request, 'feedback_update.html', context={'form': form,
                                                                'product': product})
     elif request.method == 'POST':
         form = ProductForm(data=request.POST)
@@ -75,7 +73,7 @@ def update_product(request, pk):
             product.save()
             return redirect('watch_product', pk=product.pk)
         else:
-            return render(request, 'product_update.html', context={'form': form,
+            return render(request, 'feedback_update.html', context={'form': form,
                                                                    'product': product})
     else:
         return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])

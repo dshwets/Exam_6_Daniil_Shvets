@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.views import index_view, watch_product, create_product, update_product, delete_product
+from webapp.views import index_view, watch_product, update_product, delete_product, create_feedback
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view, name='index'),
-    path('product/<int:pk>/', watch_product, name='watch_product'),
-    path('product/add/', create_product, name='create_product'),
-    path('product/<int:pk>/update/', update_product, name='update_product'),
-    path('product/<int:pk>/delete/', delete_product, name='product_delete'),
+    path('feedback/<int:pk>/', watch_product, name='watch_feedback'),
+    path('feedback/add/', create_feedback, name='create_feedback'),
+    path('feedback/<int:pk>/update/', update_product, name='update_product'),
+    path('feedback/<int:pk>/delete/', delete_product, name='product_delete'),
 ]

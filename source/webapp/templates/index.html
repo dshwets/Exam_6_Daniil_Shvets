@@ -3,7 +3,7 @@
 {% block title %}{% endblock %}
 {% block menu %}
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'create_product' %}"> Create product <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'create_feedback' %}"> Create feedback <span class="sr-only">(current)</span></a>
       </li>
 {% endblock %}
 
@@ -21,8 +21,7 @@
         <div class="card mt-3" style="width: 80%;">
         <div class="card-body">
         <h5 class="card-title">Author: {{ feedback.name }}({{ feedback.email }})</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Create: {{ feedback.created_at }} Updated: {{ feedback.updated_at }}
-        Status: {{ feedback.get_status_display }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Create: {{ feedback.created_at }} Updated: {{ feedback.updated_at }}</h6>
         <p class="card-text">{{ feedback.text }}</p>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
